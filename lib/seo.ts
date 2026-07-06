@@ -42,6 +42,7 @@ export const seoGeo = {
 
 export const seoSameAs = [
   contact.facebook,
+  contact.instagram,
   youtubeChannel.url,
   contact.mapsUrl,
 ] as const;
@@ -157,7 +158,7 @@ export function getOrganizationJsonLd() {
         name: contact.name,
         jobTitle: "Recording, Mixing & Mastering Engineer",
         worksFor: { "@id": `${siteConfig.url}/#organization` },
-        sameAs: [contact.facebook],
+        sameAs: [contact.facebook, contact.instagram],
       },
       {
         "@type": "RecordingStudio",

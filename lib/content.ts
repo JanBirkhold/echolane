@@ -17,6 +17,7 @@ export const contact = {
   mobile: "+49 (0)176 32647786",
   email: "info@echolane.de",
   facebook: "https://www.facebook.com/kai.schwerdtfeger.3",
+  instagram: "https://www.instagram.com/kaischwerdtfeger/",
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=Bl%C3%BCcherstra%C3%9Fe+1,+29303+Bergen/Hohne,+Germany",
 };
@@ -28,8 +29,13 @@ export const socials = [
     icon: "youtube" as const,
   },
   {
+    label: "Instagram",
+    href: contact.instagram,
+    icon: "instagram" as const,
+  },
+  {
     label: "Facebook",
-    href: "https://www.facebook.com/kai.schwerdtfeger.3",
+    href: contact.facebook,
     icon: "facebook" as const,
   },
   {
