@@ -1,0 +1,226 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #050505;
+  --color-foreground: #f4f4f5;
+  --color-muted: #9ca3af;
+  --color-steel: #6b7280;
+  --color-accent: #00e8d6;
+  --color-accent-muted: #40b5ad;
+  --color-accent-hot: #00e8d6;
+  --color-surface: #0f0f0f;
+  --color-surface-elevated: #171717;
+  --color-border: #262626;
+  --color-brand-teal: #40b5ad;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: clip;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: clip;
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-accent-hot) 35%, transparent);
+}
+
+@keyframes service-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes service-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(0.82);
+  }
+}
+
+.service-icon-recording-inner {
+  transform-origin: center;
+  animation: service-spin 24s linear infinite;
+}
+
+.service-icon-recording-dot {
+  transform-origin: center;
+  animation: service-pulse 2.4s ease-in-out infinite;
+}
+
+.service-icon-mixing {
+  transform-origin: center;
+  animation: service-spin 32s linear infinite reverse;
+}
+
+.group\/icon:hover .service-icon-recording-inner {
+  animation-duration: 12s;
+}
+
+.group\/icon:hover .service-icon-mixing {
+  animation-duration: 16s;
+}
+
+@keyframes brand-logo-float {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.72;
+  }
+  50% {
+    transform: translateY(-4px) scale(1.04);
+    opacity: 1;
+  }
+}
+
+.brand-logo-animated {
+  animation: brand-logo-float 5.5s ease-in-out infinite;
+}
+
+.group:hover .brand-logo-animated {
+  animation-duration: 3.5s;
+}
+
+@keyframes hero-zoom {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1.14);
+  }
+}
+
+.hero-zoom-image {
+  animation: hero-zoom 16s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform;
+}
+
+@keyframes cover-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.cover-marquee-mask {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+}
+
+.cover-marquee-track {
+  animation: cover-marquee 55s linear infinite;
+}
+
+.cover-marquee-mask:hover .cover-marquee-track {
+  animation-play-state: paused;
+}
+
+.site-nav-link {
+  position: relative;
+  isolation: isolate;
+}
+
+.site-nav-link::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0.75rem;
+  bottom: 0.4rem;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--color-accent-hot) 85%, transparent),
+    transparent
+  );
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.site-nav-link:hover::after,
+.site-nav-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.site-nav-link-mobile {
+  position: relative;
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.site-nav-link-mobile:hover,
+.site-nav-link-mobile:focus-visible {
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-accent-hot) 18%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-zoom-image {
+    animation: none !important;
+    transform: scale(1.12);
+  }
+
+  .service-icon-recording-inner,
+  .service-icon-recording-dot,
+  .service-icon-mixing,
+  .service-icon-mastering-ring,
+  .brand-logo-animated {
+    animation: none !important;
+  }
+
+  .site-nav-link::after {
+    transition: none;
+    transform: scaleX(1);
+    opacity: 0;
+  }
+
+  .site-nav-link:hover::after,
+  .site-nav-link:focus-visible::after {
+    opacity: 1;
+  }
+
+  .cover-marquee-track {
+    animation: none !important;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cover-marquee-set-clone {
+    display: none;
+  }
+}
