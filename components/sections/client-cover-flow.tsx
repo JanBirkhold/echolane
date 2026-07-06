@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ClientCoverImage } from "@/components/ui/client-cover-image";
 import {
   useCallback,
   useRef,
@@ -163,8 +163,8 @@ export function ClientCoverFlow({ className }: ClientCoverFlowProps) {
                     )}
                     style={{ backfaceVisibility: "hidden" }}
                   >
-                    <Image
-                      src={cover.src}
+                    <ClientCoverImage
+                      cover={cover}
                       alt={
                         isCenter
                           ? `Album Cover ${displayIndex + 1} von ${COVER_COUNT}`
@@ -172,8 +172,6 @@ export function ClientCoverFlow({ className }: ClientCoverFlowProps) {
                       }
                       fill
                       sizes="240px"
-                      className="object-cover"
-                      quality={90}
                       priority={Math.abs(offset) <= 2}
                       draggable={false}
                     />
@@ -191,14 +189,12 @@ export function ClientCoverFlow({ className }: ClientCoverFlowProps) {
                     }}
                   >
                     <div className="relative aspect-square w-full scale-y-[-1]">
-                      <Image
-                        src={cover.src}
-                        alt=""
+                      <ClientCoverImage
+                        cover={cover}
                         fill
                         sizes="240px"
-                        className="object-cover"
-                        quality={40}
                         draggable={false}
+                        className="opacity-90"
                       />
                     </div>
                   </div>

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ClientCoverImage } from "@/components/ui/client-cover-image";
 import { clientCovers } from "@/lib/clients-covers";
 import { cn } from "@/lib/utils";
 
@@ -34,13 +34,10 @@ export function ClientCoverMarquee({
           >
             {clientCovers.map((cover) => (
               <div key={`${set}-${cover.src}`} className={itemClass}>
-                <Image
-                  src={cover.src}
-                  alt=""
+                <ClientCoverImage
+                  cover={cover}
                   fill
                   sizes={imageSizes}
-                  className="object-cover"
-                  quality={80}
                   draggable={false}
                 />
                 {showGradient ? (

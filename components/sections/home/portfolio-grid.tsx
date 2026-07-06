@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import { ClientCoverImage } from "@/components/ui/client-cover-image";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { clientCovers } from "@/lib/clients-covers";
 
@@ -43,13 +43,12 @@ export function PortfolioGrid() {
                 href="/clients"
                 className="group relative block aspect-square overflow-hidden bg-background"
               >
-                <Image
-                  src={cover.src}
+                <ClientCoverImage
+                  cover={cover}
                   alt={`Album Cover ${index + 1}`}
                   fill
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                  className="object-cover transition duration-700 group-hover:scale-105"
-                  quality={85}
+                  className="transition duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-background/0 transition duration-500 group-hover:bg-background/50" />
                 <div className="absolute inset-x-0 bottom-0 translate-y-full p-4 transition duration-500 group-hover:translate-y-0">
