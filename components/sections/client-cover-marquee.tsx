@@ -33,7 +33,7 @@ export function ClientCoverMarquee({
             aria-hidden={set === 1 ? true : undefined}
           >
             {clientCovers.map((cover) => (
-              <div key={`${set}-${cover.id}`} className={itemClass}>
+              <div key={`${set}-${cover.src}`} className={itemClass}>
                 <Image
                   src={cover.src}
                   alt=""

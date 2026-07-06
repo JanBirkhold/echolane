@@ -136,7 +136,7 @@ export function ClientCoverFlow({ className }: ClientCoverFlowProps) {
 
               return (
                 <figure
-                  key={cover.id}
+                  key={cover.src}
                   className={cn(
                     "absolute left-1/2 top-1/2 m-0 w-[min(42vw,220px)] sm:w-[240px]",
                     isCenter ? "pointer-events-none" : "cursor-pointer",
