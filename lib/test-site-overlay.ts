@@ -82,4 +82,4 @@ export const testSiteOverlayConfig = {
 } as const;
 
 export const isDemoOverlayEnabled =
-  process.env.NEXT_PUBLIC_DEMO_OVERLAY !== "false";
+  process.env.NEXT_PUBLIC_DEMO_OVERLAY === "true";
