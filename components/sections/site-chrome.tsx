@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MobileNav } from "@/components/sections/mobile-nav";
 import { btnGhost } from "@/lib/button-styles";
 import { SocialLinks } from "@/components/sections/social-links";
 import { cn } from "@/lib/utils";
@@ -47,25 +48,9 @@ export function SiteHeader() {
           >
             Anfrage senden
           </Link>
+          <MobileNav />
         </div>
       </div>
-
-      <nav
-        aria-label="Mobile Navigation"
-        className="flex gap-1 overflow-x-auto border-t border-border/40 px-4 py-2 lg:hidden"
-      >
-        {navigation.map((item) => (
-          <Link
-            key={item.href}
-            href={
-              item.href === "/kontakt" ? contactHref("general") : item.href
-            }
-            className="site-nav-link-mobile shrink-0 rounded-none border border-border/80 bg-background/40 px-3 py-1.5 text-xs font-medium tracking-[0.04em] text-muted hover:border-accent-hot/35 hover:bg-accent-hot/5 hover:text-accent-hot focus-visible:border-accent-hot/50 focus-visible:text-accent-hot focus-visible:outline-none"
-          >
-            {item.label}
-          </Link>
-        ))}
-      </nav>
     </header>
   );
 }
