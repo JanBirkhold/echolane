@@ -43,7 +43,7 @@ export function SiteHeader() {
             href={contactHref("general")}
             className={cn(
               btnGhost,
-              "hidden transition-shadow duration-300 hover:shadow-[0_0_24px_rgba(0,232,214,0.12)] sm:inline-flex",
+              "hidden transition-shadow duration-300 hover:shadow-[0_0_24px_rgba(0,232,214,0.12)] lg:inline-flex",
             )}
           >
             Anfrage senden
